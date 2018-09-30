@@ -1,42 +1,50 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+"# Add vim-plug if it's missing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-" Keep Plugin commands between vundle#begin/end.
-" Auto Completer for various languages
-Plugin 'Valloric/YouCompleteMe'
-" Syntax checker/highlighter for Hasicorp Tools, Ansible, and yaml/yml
-Plugin 'HashiVim/vim-terraform'
-Plugin 'HashiVim/vim-vagrant'
-Plugin 'HashiVim/vim-vaultproject'
-Plugin 'HashiVim/vim-packer'
-Plugin 'HashiVim/vim-consul'
-Plugin 'chase/vim-ansible-yaml'
-" Ruby support
-Plugin 'vim-ruby/vim-ruby'
-" Status bar across the bottom of the window
-Plugin 'powerline/powerline'
-" A Git plugin that allows... git-ing...
-Plugin 'tpope/vim-fugitive'
-" A file search and navigation tool
-Plugin 'git://git.wincent.com/command-t.git'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+"# Start vim-plug block
+call plug#begin('~/.vim/plugged')
+
+"# Aesthetics or general functionality
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-bufferline'
+Plug 'vim-syntastic/syntastic'
+Plug 'mhinz/vim-signify'
+Plug 'nanotech/jellybeans.vim'
+
+"# Terraform
+Plug 'HashiVim/vim-terraform'
+Plug 'vim-syntastic/syntastic'
+Plug 'juliosueiras/vim-terraform-completion'
+
+"# Vagrant
+Plug 'HashiVim/vim-vagrant'
+
+"# Vault
+Plug 'HashiVim/vim-vaultproject'
+
+"# Packer
+Plug 'HashiVim/vim-packer'
+
+"# Consul
+Plug 'HashiVim/vim-consul'
+
+"# Ansible
+Plug 'chase/vim-ansible-yaml'
+
+"# Ruby
+Plug 'vim-ruby/vim-ruby'
+
+"# Tab-completion
+Plug 'valloric/youcompleteme'
+"# End vim-plug block
+call plug#end()
+
+"# Keybindings
+
