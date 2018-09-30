@@ -4,5 +4,6 @@
 # except the following
 !.git/
 !README.md
-!*.gitignore
+!.gitignore
+!.gitconfig
 !.vimrc
