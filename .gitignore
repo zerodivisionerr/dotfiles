@@ -1,0 +1,8 @@
+# gitignore ignore all
+*
+
+# except the following
+!.git/
+!README.md
+!*.gitignore
+!.vimrc
